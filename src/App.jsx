@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <p>{count}</p>
+      <button onClick={sumar}>Sumar</button>
       <NavBar/>
       <ItemListContainer greeting="Bienvenidos" />
       <CartWidget/>
