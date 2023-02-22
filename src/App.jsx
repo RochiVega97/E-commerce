@@ -7,9 +7,14 @@ import CartWidget from './components/CartWidget'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const sumar = () => {
+    setCount(count +1);
+  }
   
   return (
     <>
+      <p>{count}</p>
       <NavBar/>
       <ItemListContainer greeting="Bienvenidos" />
       <CartWidget/>
