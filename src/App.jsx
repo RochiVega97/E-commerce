@@ -48,6 +48,16 @@ function App() {
       <NavBar/>
       <ItemListContainer greeting="Bienvenidos" />
       <CartWidget/>
+      {
+        productos.map((prod) => {
+          return (
+            <div key={prod.id}>
+              <h1>{prod.nombre}</h1>
+              <h5>{prod.id}</h5>
+            </div>
+          );
+        })
+      }
     </>
     
   )
