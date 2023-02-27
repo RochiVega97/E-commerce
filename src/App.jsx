@@ -33,7 +33,9 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  };
+  }
+
+  fetchingProductos();
 
   const sumar = () => {
     setCount(count +1);
