@@ -1,8 +1,8 @@
 [
-    {"id":1 , "nombre": "Notebook", "descripcion":"Notebook Lenovo" , "stock":4, "categoria":"Computacion"},
-    {"id":2 , "nombre": "Monitor", "descripcion":"Monitor Led DELL" , "stock":2, "categoria":"Computacion"},
-    {"id":3 , "nombre": "Impesora", "descripcion":"Impresora  Brother" , "stock":1, "categoria":"Computacion"},
-    {"id":4 , "nombre": "Mouse", "descripcion":"Mouse DELL" , "stock":4, "categoria":"Computacion"},
-    {"id":5 , "nombre": "Teclado", "descripcion":"Teclado inalambrico DELL" , "stock":10, "categoria":"Computacion"}
+    {"id":1 , "nombre": "Notebook", "descripcion":"Notebook Lenovo" , "stock":4, "categoria":"Computacion", "precio": 40000.00},
+    {"id":2 , "nombre": "Monitor", "descripcion":"Monitor Led DELL" , "stock":2, "categoria":"Computacion", "precio": 60000.00},
+    {"id":3 , "nombre": "Impesora", "descripcion":"Impresora  Brother" , "stock":1, "categoria":"Computacion", "precio": 40000.00},
+    {"id":4 , "nombre": "Mouse", "descripcion":"Mouse DELL" , "stock":4, "categoria":"Computacion", "precio": 1500.00},
+    {"id":5 , "nombre": "Teclado", "descripcion":"Teclado inalambrico DELL" , "stock":10, "categoria":"Computacion", "precio": 2000.00}
   
   ]
