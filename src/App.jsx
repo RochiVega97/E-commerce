@@ -16,9 +16,24 @@ function App() {
   
   ]
   const getProductos = () =>{
-    
-    return productos;
+    return new Promise((resolve, reject) => {
+      if (productos.length===0){
+        reject(new Error("No hay productos que mostrar"));
+      }
+      setTimeout(() => {
+        resolve(productos);
+      }, 2000);
+    });
   }; 
+
+  async function fetchingProductos() {
+    try {
+      const productosFetched = await getProductos();
+      console.log(productosFetched);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const sumar = () => {
     setCount(count +1);
