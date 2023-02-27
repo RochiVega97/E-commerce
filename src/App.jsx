@@ -7,10 +7,22 @@ import CartWidget from './components/CartWidget'
 
 function App() {
   const [count, setCount] = useState(0)
+  const productos = [
+    {id:1 , nombre: "Notebook"},
+    {id:2 , nombre: "Monitor"},
+    {id:3 , nombre: "Impesora"},
+    {id:4 , nombre: "Mouse"},
+    {id:5 , nombre: "Teclado"},
+  
+  ]
+  const getProductos = () =>{
+    
+    return productos;
+  }; 
 
   const sumar = () => {
     setCount(count +1);
-  }
+  };
   
   return (
     <>
