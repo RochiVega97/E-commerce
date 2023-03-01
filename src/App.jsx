@@ -1,37 +1,40 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
-import CartWidget from './components/CartWidget'
-import Footer from './components/Footer'
-import { BrowserRouter } from 'react-router-dom'
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import ItemListContainer from "./components/ItemListCantainer";
+import Cart from "./components/Cart";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const sumar = () => {
-    setCount(count +1);
-  };
-  
   return (
-    <>
-      <p>{count}</p>
-      <button onClick={sumar}>Sumar</button>
+    <div className="App">
       <BrowserRouter>
-        <NavBar/>
-
-    <Routes>
-        <Route exact path="/" element={<Home />} /> 
-        <Route exact path="/about" element ={<About/>} />
-        <Route exact path="/about" element ={<ItemListContainer/>} />
-        <Route exact path="/about" element ={<CartWidget/>} />
-    </Routes>
-        <Footer/>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ItemListContainer
+                greeting={"Tienda Ecommerce Zapatillas AlmayDeportes"}
+              />
+            }
+          />
+          <Route
+            path="/categoria/:name"
+            element={
+              <ItemListContainer
+                greeting={"Tienda Ecommerce Zapatillas AlmayDeportes"}
+              />
+            }
+          />
+          <Route path="/producto/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
       </BrowserRouter>
-    </>
-    
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

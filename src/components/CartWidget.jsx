@@ -3,7 +3,13 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 
 class CartWidget extends Component {
   render() {
-    return <BsFillCartCheckFill />  
+    return (
+      <a href="#" className="flex">
+        <BsFillCartCheckFill color="primary" fontSize="large"></BsFillCartCheckFill>
+        <h4 style={{ color: "white" }}>3</h4>
+      </a>
+
+    )
   }
 }
 

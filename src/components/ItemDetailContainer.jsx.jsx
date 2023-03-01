@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+
+import ItemDetail from "./ItemDetail";
 import Loading from "./Loading";
 
-const initialData = [
+const initialProduct = [
   {
     id: 1,
     categoria: "deporte",
     nombre: "Zapatilla Nike pro",
     precio: 5200,
     img: "/img01.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 2,
@@ -18,7 +19,7 @@ const initialData = [
     nombre: "Zapatilla Nike Static",
     precio: 9333,
     img: "  /img02.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 3,
@@ -26,7 +27,7 @@ const initialData = [
     nombre: "Zapatilla Nike XWM",
     precio: 4587,
     img: " /img03.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 4,
@@ -34,7 +35,7 @@ const initialData = [
     nombre: "Zapatilla Nike pro Ultra",
     precio: 6792,
     img: "/img04.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 5,
@@ -42,7 +43,7 @@ const initialData = [
     nombre: "Zapatilla Nike Dport",
     precio: 7980,
     img: "/img05.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 6,
@@ -50,7 +51,7 @@ const initialData = [
     nombre: "Zapatilla Nike pro",
     precio: 7390,
     img: "/img06.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 7,
@@ -58,7 +59,7 @@ const initialData = [
     nombre: "Zapatilla Nike Sport",
     precio: 8920,
     img: "/img07.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 8,
@@ -66,7 +67,7 @@ const initialData = [
     nombre: "Zapatilla Nike Sport max",
     precio: 3800,
     img: "/img08.jpg",
-    cantidad: 1,
+    stock: 5,
   },
   {
     id: 9,
@@ -74,39 +75,36 @@ const initialData = [
     nombre: "Zapatilla Nike pro Future",
     precio: 5900,
     img: "/img09.jpg",
-    cantidad: 1,
+    stock: 5,
   },
 ];
 
 const promesa = new Promise((res, rej) => {
-  res(initialData);
+  res(initialProduct);
   rej("Hay un error");
 });
-const ItemListContainer = ({ greeting }) => {
-  const [productos, setProductos] = useState([]);
+
+const ItemDetailContainer = () => {
+  const [producto, setProducto] = useState({});
   const [loading, setLoading] = useState(false);
-  const { name } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    setLoading(true);
     setTimeout(() => {
+      setLoading(true);
       promesa.then((data) => {
-        if (name) {
-          setProductos(data.filter((item) => item.categoria === name));
-        } else {
-          setProductos(data);
-        }
-        setLoading(false);
+        setProducto(data.find((el) => el.id === parseInt(id)));
       });
     }, 2000);
-  }, [name]);
+    setLoading(false);
+  }, [id]);
 
   return (
-    <>
-      <h1 className="text-2xl text-white bg-neutral-800 ">{greeting}</h1>
-      {loading ? <Loading /> : <ItemList productos={productos} />}
-    </>
+    <div>
+      {loading ? loading : <Loading />}
+      <ItemDetail producto={producto} />
+    </div>
   );
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;

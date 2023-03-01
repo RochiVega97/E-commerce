@@ -1,24 +1,35 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import CartWidget from './CartWidget';
+import React from "react";
+import Categories from "./Categories";
+import CardWidget from "./Cardwidget";
+import { Link } from "react-router-dom";
 
-
-function NavBar() {
+const Navbar = () => {
   return (
-    <>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home </Nav.Link>
-            <Nav.Link href="#features">Features </Nav.Link>
-            <Nav.Link href="#pricing">Pricing </Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-    </>
+    <nav className="bg-gray-800">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          <Link to={"/"}>
+            <img
+              className="hidden h-8 w-auto lg:block"
+              src="./logo-almay.png"
+            />
+          </Link>
+          <div className="flex flex-1 items-center content-center justify-center sm:items-stretch   ">
+            <div className="hidden sm:ml-6  sm:block">
+              <div className="flex  space-x-6 ">
+                <Categories />
+              </div>
+            </div>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <Link to={"/cart"}>
+              <CardWidget />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
-}
+};
 
-export default NavBar;
+export default Navbar;

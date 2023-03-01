@@ -1,30 +1,16 @@
-import { container } from "@chakra-ui/react";
-const ItemList = ( {productos, cat}) => {
-    console.log(productos);
-    console.log(cat);
+import React from "react";
+import Item from "./Item";
 
-    const catFilter = cat.filter((cat) => {
-        return cat ==="Computacion";
-    });
-
-    console.log(catFilter);
-    return (
-        <>
-            <Container maxW="container.sm" className="main-catalogue">
-                {productos.map((productos) => {
-                    <Item
-                        key={productos.id}
-                        id={productos.id}
-                        name={productos.nombre}
-                        description={productos.descripcion}
-                        stock={productos.stock}
-                        category={productos.categoria}
-                        price={productos.precio}
-                        />
-                })}
-            </Container>
-        </>
-    );
+const ItemList = ({ productos }) => {
+  return (
+    <div className="md:container md:mx-auto grid grid-cols-3 gap-1 my-1.5  ">
+      {productos.map((prod) => (
+        <div>
+          <Item prod={prod} />
+        </div>
+      ))}
+    </div>
+  );
 };
 
-export default ItemList
+export default ItemList;
