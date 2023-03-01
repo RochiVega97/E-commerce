@@ -1,9 +1,9 @@
 import React from "react";
 import Categories from "./Categories";
-import CardWidget from "./Cardwidget";
+import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const NavBar = () => {
   return (
     <nav className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -23,7 +23,7 @@ const Navbar = () => {
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <Link to={"/cart"}>
-              <CardWidget />
+              <CartWidget />
             </Link>
           </div>
         </div>
@@ -32,4 +32,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

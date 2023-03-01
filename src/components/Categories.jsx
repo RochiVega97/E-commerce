@@ -7,19 +7,19 @@ const Categories = () => {
         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
         to={"categoria/deporte"}
       >
-        Deporte
+        Zapatillas de Deporte 
       </Link>
       <Link
         to={"categoria/urbana"}
         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
       >
-        Urbana
+        Zapatillas Urbanas 
       </Link>
       <Link
-        to={"categoria/vestir"}
+        to={"categoria/formal"}
         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
       >
-        Vestir
+        Zapatillas  Formal 
       </Link>
     </div>
   );
